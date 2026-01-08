@@ -27,6 +27,12 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **Dockerization**: ALWAYS write a **multi-stage Dockerfile** when a project contains a command (`main.go`). Place the `Dockerfile` in the same directory as the corresponding `main.go` (e.g., `cmd/<command-name>/Dockerfile`) to keep deployment logic near the entry point.
 - **Web Services**: Combine `cmd/` for the entry point and `internal/` for the core logic (handlers, services, models).
 
+### Cloud Native & 12-Factor Apps
+- **12-Factor Methodology:** Strictly follow the [12-factor app](https://12factor.net/) principles for portability and resilience.
+- **Structured Logging:** ALWAYS use structured logging. Prefer the standard library's `log/slog` or `github.com/rs/zerolog`.
+- **Logs as Event Streams:** Output logs to `stdout` in a structured format (JSON). Avoid writing to local files or managing log rotation within the application.
+- **Externalized Configuration:** Store configuration in the environment. Use libraries like `envconfig` or `viper` but prioritize simple environment variable access.
+
 ### Architecture & Design
 - **Low Coupling & High Cohesion:** Aim for modular code where components have minimal dependencies on each other (low coupling) and perform a single, well-defined task (high cohesion).
 - **Composition over Inheritance:** Leverage Go's embedding and interface systems to build flexible, decoupled components.
