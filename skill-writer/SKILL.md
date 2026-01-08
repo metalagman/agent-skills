@@ -48,13 +48,14 @@ Include the following fields for maximum compatibility:
 ### 2. Instructions (Markdown)
 The body of the `SKILL.md` should provide:
 - **Core Mandates**: Unbreakable rules for the skill.
+- **Developer Workflow**: A clear, step-by-step workflow for the developer, including tool invocation, linting, and testing.
 - **Expert Guidance**: Step-by-step procedures or specialized knowledge.
-- **Progressive Disclosure**: For complex skills, refer to supplemental files in `references/` or `scripts/` to keep the main context lean.
 
 ## Best Practices
-- **Exhaustive Coverage**: ALWAYS ensure that every single requirement, rule, and detail from the source material (e.g., style guides, documentation) is explicitly mentioned or accounted for in the skill. Do not summarize to the point of losing critical information.
-- **Least Mechanism**: Use the simplest possible set of instructions to achieve the goal.
-- **Clarity over Brevity**: Ensure procedures are unambiguous.
+- **Exhaustive Coverage**: ALWAYS ensure that every single requirement, rule, and detail from the source material is explicitly mentioned.
+- **Modern Tooling**: For Go projects, mandate the use of `go tool` (Go 1.24+) for invoking tools like linters or generators.
+- **Workflow-Centric**: Every skill should define a recommended developer workflow that integrates quality checks (linting, tests) as early as possible.
+- **Least Mechanism**: Use the simplest possible set of instructions.
 - **Tool-Oriented**: If the skill requires specific shell commands, provide clear templates or scripts.
 - **Context Awareness**: Remind the agent to respect project-specific conventions and existing code.
 
