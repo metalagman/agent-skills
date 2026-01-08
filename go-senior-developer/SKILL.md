@@ -42,6 +42,10 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **Local Development:** Support `.env` files using `github.com/joho/godotenv` to simplify local debugging and environment setup. Do NOT commit the `.env` file; provide a `.env.example` instead.
 
 ### Architecture & Design
+- **API First Approach:** ALWAYS design APIs before implementation.
+    - Use **OpenAPI** (Swagger) for RESTful Web APIs.
+    - Use **AsyncAPI** for JSON-based asynchronous messaging (e.g., NATS, RabbitMQ).
+- **Code Generation (Codegen):** Use codegen tools to generate transport layers, server stubs, and clients from API specifications. Favor generated clients over manual implementations to ensure type safety and contract compliance.
 - **Low Coupling & High Cohesion:** Aim for modular code where components have minimal dependencies on each other (low coupling) and perform a single, well-defined task (high cohesion).
 - **Composition over Inheritance:** Leverage Go's embedding and interface systems to build flexible, decoupled components.
 - **Interfaces for Decoupling:** Define interfaces on the consumer side. Keep them small (Single Responsibility Principle).
