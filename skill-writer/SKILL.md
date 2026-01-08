@@ -52,12 +52,13 @@ The body of the `SKILL.md` should provide:
 - **Expert Guidance**: Step-by-step procedures or specialized knowledge.
 
 ## Best Practices
+- **Style Prioritization**: ALWAYS prioritize following the established code style, naming conventions, and architectural patterns of the existing project. Use external guides (e.g., Google, Uber) only as a fallback when no project-specific style is discernible.
+- **Skill Orchestration**: If a skill relies on specific standards (like a style guide), it should explicitly instruct the agent to activate or consult the relevant specialized skill (e.g., `activate_skill("go-google-style-guide")`).
 - **Exhaustive Coverage**: ALWAYS ensure that every single requirement, rule, and detail from the source material is explicitly mentioned.
-- **Modern Tooling**: For Go projects, mandate the use of `go tool` (Go 1.24+) for invoking tools like linters or generators.
+- **Modern Tooling**: For Go projects, mandate the use of `go tool` (Go 1.24+) for invoking project-local tools.
 - **Workflow-Centric**: Every skill should define a recommended developer workflow that integrates quality checks (linting, tests) as early as possible.
-- **Least Mechanism**: Use the simplest possible set of instructions.
-- **Tool-Oriented**: If the skill requires specific shell commands, provide clear templates or scripts.
-- **Context Awareness**: Remind the agent to respect project-specific conventions and existing code.
+
+
 
 ## Workflow for Creating a Skill
 1. Define the skill's purpose and scope.
