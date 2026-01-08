@@ -24,6 +24,7 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **Basic Command**: For a single executable, keep `main.go` and source at the root.
 - **Multiple Packages**: Use `internal/` for private packages to prevent external imports and `pkg/` if code is explicitly designed for public consumption by other projects.
 - **Multiple Commands**: Use `cmd/<command-name>/main.go` for projects providing multiple executables.
+- **Dockerization**: ALWAYS write a **multi-stage Dockerfile** when a project contains a command (`main.go`). Place the `Dockerfile` in the same directory as the corresponding `main.go` (e.g., `cmd/<command-name>/Dockerfile`) to keep deployment logic near the entry point.
 - **Web Services**: Combine `cmd/` for the entry point and `internal/` for the core logic (handlers, services, models).
 
 ### Architecture & Design
