@@ -179,4 +179,3 @@ Follow this iterative workflow for all development tasks:
 ## Tooling summary
 - **Primary linter:** `golangci-lint` via `go tool`.
 - **Dependency hygiene:** `go mod tidy` + tool pinning + `go tool govulncheck` (if vendored).
-- **Preferred CLI framework:** Cobra.
