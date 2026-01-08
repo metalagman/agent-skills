@@ -46,6 +46,7 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **Composition over Inheritance:** Leverage Go's embedding and interface systems to build flexible, decoupled components.
 - **Interfaces for Decoupling:** Define interfaces on the consumer side. Keep them small (Single Responsibility Principle).
 - **Dependency Injection:** Use constructors to inject dependencies explicitly. For complex applications, prefer the **uber-go/fx** framework for dependency injection and application lifecycle management. Avoid global state and `init()`.
+- **Functional Options Generation:** Use **options-gen** (`github.com/kazhuravlev/options-gen`) to generate functional options for constructors instead of writing them by hand. This reduces boilerplate and ensures a consistent API for optional parameters.
 
 ### Advanced Concurrency
 - **Context Propagation:** Pass `context.Context` as the first argument for I/O or long-running tasks.
