@@ -27,6 +27,7 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **Web Services**: Combine `cmd/` for the entry point and `internal/` for the core logic (handlers, services, models).
 
 ### Architecture & Design
+- **Low Coupling & High Cohesion:** Aim for modular code where components have minimal dependencies on each other (low coupling) and perform a single, well-defined task (high cohesion).
 - **Composition over Inheritance:** Leverage Go's embedding and interface systems to build flexible, decoupled components.
 - **Interfaces for Decoupling:** Define interfaces on the consumer side. Keep them small (Single Responsibility Principle).
 - **Dependency Injection:** Use constructors to inject dependencies explicitly. Avoid global state and `init()`.
@@ -58,6 +59,7 @@ Follow this iterative workflow for all development tasks:
 - **Sync.Pool:** Use for high-frequency allocations to reduce GC pressure.
 
 ### Testing & Quality
+- **Generated Mocks:** To maintain low coupling, use generated mocks (e.g., via `go tool mockgen`) for external dependencies of the module under test. This ensures unit tests remain isolated and fast.
 - **Table-Driven Tests**: Standardize on these for edge-case coverage.
 - **Fuzzing**: Use `go test -fuzz` for discovering unexpected inputs.
 - **Benchmarking**: Use `go test -bench` with `-benchmem`.
