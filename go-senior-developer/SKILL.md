@@ -3,8 +3,6 @@ name: go-senior-developer
 description: Expert senior-level Go guidance for architecture, API-first design/codegen, advanced concurrency, performance tuning, testing/quality, cloud-native 12-factor practices, and Go 1.24+ tooling for large-scale systems.
 metadata:
   short-description: Senior Go playbook - architecture + concurrency + perf + prod + tooling.
-  when-to-use: Use when the user asks for Go design/review/refactor, API/spec-first work, codegen, concurrency/races, performance profiling, testing strategy, tooling/CI, or production hardening.
-  tags: [go, architecture, api-first, openapi, asyncapi, codegen, concurrency, performance, testing, 12-factor, tooling, code-review, git, security, observability]
 ---
 
 # go-senior-developer

@@ -45,7 +45,8 @@ The `SKILL.md` file MUST contain YAML frontmatter and Markdown content.
 Include the following fields for maximum compatibility:
 - `name`: A unique, kebab-case identifier for the skill.
 - `description`: A clear, concise sentence explaining what the skill does. This is used for discovery.
-- `allowed-tools`: (Optional) List of specific tools the agent is permitted to use when this skill is active.
+- `metadata`:
+  - `short-description`: A short, user-facing description.
 
 ### 2. Instructions (Markdown)
 The body of the `SKILL.md` should provide:
