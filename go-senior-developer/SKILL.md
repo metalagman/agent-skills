@@ -32,6 +32,7 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **Structured Logging:** ALWAYS use structured logging. Prefer the standard library's `log/slog` or `github.com/rs/zerolog`.
 - **Logs as Event Streams:** Output logs to `stdout` in a structured format (JSON). Avoid writing to local files or managing log rotation within the application.
 - **Externalized Configuration:** Store configuration in the environment. Use libraries like `envconfig` or `viper` but prioritize simple environment variable access.
+- **Local Development:** Support `.env` files using `github.com/joho/godotenv` to simplify local debugging and environment setup. Do NOT commit the `.env` file; provide a `.env.example` instead.
 
 ### Architecture & Design
 - **Low Coupling & High Cohesion:** Aim for modular code where components have minimal dependencies on each other (low coupling) and perform a single, well-defined task (high cohesion).
