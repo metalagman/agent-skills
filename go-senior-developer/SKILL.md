@@ -38,6 +38,7 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **12-Factor Methodology:** Strictly follow the [12-factor app](https://12factor.net/) principles for portability and resilience.
 - **Structured Logging:** ALWAYS use structured logging. Prefer the standard library's `log/slog` or `github.com/rs/zerolog`.
 - **Logs as Event Streams:** Output logs to `stdout` in a structured format (JSON). Avoid writing to local files or managing log rotation within the application.
+- **Graceful Shutdown:** ALWAYS implement graceful shutdown for commands. Use `signal.NotifyContext` with `os.Interrupt` and `syscall.SIGTERM` to create a cancellable context. Ensure all long-running tasks, servers, and workers respect this context for termination.
 - **Externalized Configuration:** Store configuration in the environment. Use libraries like `envconfig` or `viper` but prioritize simple environment variable access.
 - **Local Development:** Support `.env` files using `github.com/joho/godotenv` to simplify local debugging and environment setup. Do NOT commit the `.env` file; provide a `.env.example` instead.
 
