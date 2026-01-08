@@ -1,6 +1,8 @@
 ---
 name: go-uber-style-guide
 description: Exhaustive expertise in Go programming according to the Uber Go Style Guide. Covers every rule, mandate, and recommendation for correctness, safety, and idiomatic Go.
+metadata:
+  short-description: Uber Go Style Guide expertise - correctness, safety, and idioms.
 ---
 
 # go-uber-style-guide

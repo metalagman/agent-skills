@@ -1,6 +1,8 @@
 ---
 name: skill-writer
 description: Expert at creating, documenting, and structuring new AI agent skills following Gemini CLI, Claude Code, and OpenAI Codex specifications.
+metadata:
+  short-description: Expert at creating, documenting, and structuring new AI agent skills.
 ---
 
 # skill-writer

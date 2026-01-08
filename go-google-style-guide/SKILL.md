@@ -5,6 +5,8 @@ description:
   the user needs to write, refactor, or review Go code for clarity, simplicity,
   and maintainability. This skill ensures adherence to Google's official Go
   idioms, formatting, and the "Least Mechanism" principle.
+metadata:
+  short-description: Google Go Style Guide expertise - clarity, simplicity, and maintainability.
 ---
 
 # Google Go Style Guide Developer
