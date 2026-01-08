@@ -34,6 +34,18 @@ ln -s ~/Projects/agent-skills/go-uber-style-guide ~/.gemini/skills/go-uber-style
 
 *Replace `~/.gemini/skills/` with `~/.claude/skills/` for Claude Code or `~/.codex/skills/` for OpenAI Codex.*
 
+### Example: Link One Skill Only
+
+If you want to install a single skill for one agent, create the agent skills directory (if needed) and link just that skill:
+
+```bash
+# Create the agent skills directory if it doesn't exist
+mkdir -p ~/.gemini/skills
+
+# Link a single skill
+ln -s ~/Projects/agent-skills/go-senior-developer ~/.gemini/skills/go-senior-developer
+```
+
 ### Manual Placement
 
 1.  **Placement**: Clone this repository or copy specific skill folders into your agent's skill directory (e.g., `.gemini/skills/`, `.claude/skills/`, or `.codex/skills/`).
