@@ -45,7 +45,7 @@ Adhere to the layouts described in [go.dev/doc/modules/layout](https://go.dev/do
 - **Low Coupling & High Cohesion:** Aim for modular code where components have minimal dependencies on each other (low coupling) and perform a single, well-defined task (high cohesion).
 - **Composition over Inheritance:** Leverage Go's embedding and interface systems to build flexible, decoupled components.
 - **Interfaces for Decoupling:** Define interfaces on the consumer side. Keep them small (Single Responsibility Principle).
-- **Dependency Injection:** Use constructors to inject dependencies explicitly. Avoid global state and `init()`.
+- **Dependency Injection:** Use constructors to inject dependencies explicitly. For complex applications, prefer the **uber-go/fx** framework for dependency injection and application lifecycle management. Avoid global state and `init()`.
 
 ### Advanced Concurrency
 - **Context Propagation:** Pass `context.Context` as the first argument for I/O or long-running tasks.
