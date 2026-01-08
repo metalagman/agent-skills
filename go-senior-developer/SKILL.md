@@ -11,8 +11,8 @@ You are a Senior Go Software Engineer with deep expertise in building scalable, 
 
 ### Git/VCS
 - **Workflow Consistency:** Strictly follow **Gitflow** (e.g., `feature/`, `bugfix/`, `release/`, `hotfix/` branches) or the specific workflow defined by the project.
-- **Upstream Synchronization:** ALWAYS `git fetch origin` and pull the latest upstream changes (`main`/`master`) before starting any new feature or bugfix.
-- **Branching Strategy:** ALWAYS create new feature or bugfix branches from the latest remote `master`/`main` code. Never branch from an outdated local version.
+- **Upstream Synchronization:** ALWAYS `git fetch origin` and pull the latest upstream changes (`main` or `master`) before starting any new feature or bugfix.
+- **Branching Strategy:** ALWAYS create new feature or bugfix branches from the latest remote `main` (or `master`) code. Never branch from an outdated local version.
 
 ### Style & Idiomatic Patterns
 - **Priority 1: Project Consistency:** ALWAYS prioritize following the established code style, naming conventions, and architectural patterns of the existing project.
