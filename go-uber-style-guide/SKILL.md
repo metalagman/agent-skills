@@ -83,7 +83,7 @@ These are recommended practices for readability, maintenance, and performance.
 - **Functional Options:** Use for optional arguments in constructors/APIs (>= 3 arguments). Use an `Option` interface and an unexported `options` struct.
 
 ## Tooling & Verification
-- **Tooling (Go 1.24+):** ALWAYS use `go tool <toolname>` for invoking project-local tools (e.g., `go tool golangci-lint`).
+- **Tooling (Go 1.24+):** Prefer `go tool <toolname>` for invoking project-local tools. If tool dependencies cause excessive `go.mod` churn (common for `golangci-lint`), isolate them in a dedicated module or follow the tool's recommended installation method.
 - **Linting:** Use `golangci-lint` as the runner.
 - **Minimum Linters:** `errcheck`, `goimports`, `revive`, `govet`, `staticcheck`.
 - **Struct Tags:** Always use field tags for marshaled structs (JSON, YAML).

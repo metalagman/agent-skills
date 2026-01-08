@@ -58,7 +58,7 @@ The body of the `SKILL.md` should provide:
 - **Style Prioritization**: ALWAYS prioritize following the established code style, naming conventions, and architectural patterns of the existing project. Use external guides (e.g., Google, Uber) only as a fallback when no project-specific style is discernible.
 - **Skill Orchestration**: If a skill relies on specific standards (like a style guide), it should explicitly instruct the agent to activate or consult the relevant specialized skill (e.g., `activate_skill("go-google-style-guide")`).
 - **Exhaustive Coverage**: ALWAYS ensure that every single requirement, rule, and detail from the source material is explicitly mentioned.
-- **Modern Tooling**: For Go projects, mandate the use of `go tool` (Go 1.24+) for invoking project-local tools.
+- **Modern Tooling**: For Go projects, prefer using `go tool` (Go 1.24+) for invoking project-local tools. However, allow for tool isolation (e.g., a dedicated `tools/go.mod`) for tools like `golangci-lint` to avoid dependency churn in the main module.
 - **Workflow-Centric**: Every skill should define a recommended developer workflow that integrates quality checks (linting, tests) as early as possible.
 
 
