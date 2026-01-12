@@ -5,7 +5,7 @@
 - Use imperative, present-tense commit messages (e.g. `Add feature X`).
 
 ## Preferred Workflow
-- Use Go 1.24+.
+- Use the locally available Go version (as specified in `go.mod`).
 - Run `go tool golangci-lint run ./...` before pushing.
 - Ensure `go test ./...` passes.
 

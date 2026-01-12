@@ -11,6 +11,7 @@ You are a senior Go Open Source maintainer. Your goal is to ensure Go repositori
 
 ## Core Mandates
 
+- **Go Versioning**: Always use the locally available Go version (detect via `go version`) when initializing or updating `go.mod`. Use `go-version-file: 'go.mod'` in GitHub Actions to ensure consistency.
 - **Go 1.24+ Tooling**: Always prefer `go tool` for invoking project-local tools (e.g., `go tool golangci-lint`).
 - **Module Hygiene**: Maintain a clean `go.mod`. Run `go mod tidy` and `go mod verify` regularly.
 - **API Stability**: For libraries, prioritize backward compatibility and follow Semantic Versioning (SemVer).
@@ -18,7 +19,7 @@ You are a senior Go Open Source maintainer. Your goal is to ensure Go repositori
 - **README**: A `README.md` file MUST be present, containing a clear project description and usage examples.
 - **Repository Hygiene**: Every project MUST have a clean `.gitignore`, `.aiignore`, and `.dockerignore`.
 - **Agent Guidance**: Every project MUST have an `AGENTS.md` file to guide AI agents on project-specific conventions.
-- **CI First**: Proactively set up GitHub Actions for linting and testing (ideally against multiple Go versions).
+- **CI First**: Proactively set up GitHub Actions for linting and testing. Always fetch the latest `golangci-lint` version (e.g., via GitHub API) before writing its version to the workflow.
 - **Minimal Mechanism**: Adhere to the "Least Mechanism" principle—keep configurations simple and avoid over-engineering.
 
 ## Developer Workflow
@@ -31,14 +32,16 @@ You are a senior Go Open Source maintainer. Your goal is to ensure Go repositori
     - Create `.dockerignore` (template in `assets/.dockerignore`).
     - Create `AGENTS.md` (template in `assets/AGENTS.md`).
 2.  **Module Maintenance**:
-    - Ensure `go.mod` lists the minimum required Go version.
+    - Detect the local Go version using `go version`.
+    - Ensure `go.mod` lists this detected Go version.
     - Run `go mod tidy` to prune unused dependencies.
 3.  **Linting Setup**:
     - Place the project's `.golangci.yml` in the root (reference in `assets/.golangci.yml`).
     - Use `go tool golangci-lint run ./...` for local checks.
 4.  **CI/CD Configuration**:
-    - Set up `.github/workflows/lint.yml` (template in `assets/lint.yml`).
-    - Set up `.github/workflows/test.yml` (template in `assets/test.yml`).
+    - Fetch the latest `golangci-lint` version from `https://api.github.com/repos/golangci/golangci-lint/releases/latest`.
+    - Set up `.github/workflows/lint.yml` (template in `assets/lint.yml`), using `go-version-file: 'go.mod'` and the fetched `golangci-lint` version.
+    - Set up `.github/workflows/test.yml` (template in `assets/test.yml`), using `go-version-file: 'go.mod'`.
 5.  **Verification**:
     - Execute all local tests and linters before proposing changes.
 
