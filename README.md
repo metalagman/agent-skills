@@ -9,6 +9,8 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 ## Available Skills
 
 - **[Go Google Style Guide](./go-google-style-guide/SKILL.md)**: Expertise in Go programming according to the Google Go Style Guide.
+- **[Go Google Style Decisions](./go-google-style-decisions/SKILL.md)**: Specific choices and trade-offs for consistent Go codebases.
+- **[Go Google Best Practices](./go-google-best-practices/SKILL.md)**: Advanced idiomatic Go patterns and best practices from Google.
 - **[Go Uber Style Guide](./go-uber-style-guide/SKILL.md)**: Exhaustive expertise in Go programming according to the Uber Go Style Guide.
 - **[Go Senior Developer](./go-senior-developer/SKILL.md)**: Expert guidance for senior Go developers on architecture, concurrency, and performance.
 - **[Skill Writer](./skill-writer/SKILL.md)**: Expert at creating, documenting, and structuring new AI agent skills.
