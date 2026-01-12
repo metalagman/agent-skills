@@ -1,0 +1,9 @@
+version: "2"
+
+linters:
+  default: fast
+  disable:
+    - wsl
+    - depguard
+  enable:
+    - wsl_v5

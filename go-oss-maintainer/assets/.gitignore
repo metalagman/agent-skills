@@ -1,0 +1,18 @@
+# Binaries
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Testing
+*.test
+coverage.out
+
+# IDEs
+.idea/
+.vscode/
+.DS_Store
+
+# Tooling
+.cache/
