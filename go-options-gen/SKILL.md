@@ -119,4 +119,4 @@ This will generate `NewMyServiceOptions` and `OptionMyServiceOptionsSetter`, all
 
 ## Resources
 
-- **Example**: A complete implementation showing unexported fields, validation, and component integration can be found in [templates/service_options.go](./templates/service_options.go).
+- **Example**: A complete implementation showing unexported fields, validation, and component integration can be found in [assets/service_options.go](./assets/service_options.go).

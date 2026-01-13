@@ -16,10 +16,20 @@ When creating a new skill, ensure it follows this standard directory structure:
 ```text
 skill-name/
 ├── SKILL.md          # Primary entry point (Metadata + Instructions)
-├── scripts/          # (Optional) Helper scripts or tools
-├── references/       # (Optional) Documentation or style guides
-└── templates/        # (Optional) Boilerplate or example files
+├── scripts/          # (Optional) Executable scripts
+├── references/       # (Optional) Static documentation or schemas
+└── assets/           # (Optional) Code templates or boilerplate
 ```
+
+## Resource Conventions
+
+While you can structure your skill directory however you like, the Agent Skills standard encourages these conventions:
+
+- **`scripts/`**: Executable scripts (bash, python, node) the agent can run.
+- **`references/`**: Static documentation, schemas, or example data for the agent to consult.
+- **`assets/`**: Code templates, boilerplate, or binary resources.
+
+When a skill is activated, Gemini CLI provides the model with a tree view of the entire skill directory, allowing it to discover and utilize these assets.
 
 ## Skill Location & Scoping
 

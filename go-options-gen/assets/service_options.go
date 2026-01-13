@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	time "time"
+	"time"
 )
 
 //go:generate go tool options-gen -from-struct=serviceOptions -out-filename=service_options.gen.go -out-prefix=Service
@@ -10,9 +10,9 @@ import (
 // serviceOptions defines the configuration for our Service.
 // Note: Fields are unexported to maintain encapsulation.
 type serviceOptions struct {
-	endpoint string        `option:"mandatory" validate:"required,url"
-	timeout  time.Duration `default:"30s" validate:"min=1s"
-	retries  int           `default:"3" validate:"min=0"
+	endpoint string        `option:"mandatory" validate:"required,url"`
+	timeout  time.Duration `default:"30s" validate:"min=1s"`
+	retries  int           `default:"3" validate:"min=0"`
 }
 
 // Service is an example component using generated options.
