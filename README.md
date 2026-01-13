@@ -8,17 +8,22 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 
 ## Available Skills
 
-- **[Go Google Style Guide](./go-google-style-guide/SKILL.md)**: Expertise in Go programming according to the Google Go Style Guide.
-- **[Go Google Style Decisions](./go-google-style-decisions/SKILL.md)**: Specific choices and trade-offs for consistent Go codebases.
-- **[Go Google Best Practices](./go-google-best-practices/SKILL.md)**: Advanced idiomatic Go patterns and best practices from Google.
-- **[Go Uber Style Guide](./go-uber-style-guide/SKILL.md)**: Exhaustive expertise in Go programming according to the Uber Go Style Guide.
-- **[Go Senior Developer](./go-senior-developer/SKILL.md)**: Expert guidance for senior Go developers on architecture, concurrency, and performance.
-- **[Go OSS Maintainer](./go-oss-maintainer/SKILL.md)**: Expert Go OSS maintainer specializing in repository hygiene, CI/CD, and AI-agent compatibility.
-- **[Go Options Gen](./go-options-gen/SKILL.md)**: Expert in generating functional options for Go structs using the options-gen library.
-- **[Skill Writer](./skill-writer/SKILL.md)**: Expert at creating, documenting, and structuring new AI agent skills.
+### Go
+- **[Google Style Guide](./go-google-style-guide/SKILL.md)**: Expertise in Go programming according to the Google Go Style Guide.
+- **[Google Style Decisions](./go-google-style-decisions/SKILL.md)**: Specific choices and trade-offs for consistent Go codebases.
+- **[Google Best Practices](./go-google-best-practices/SKILL.md)**: Advanced idiomatic Go patterns and best practices from Google.
+- **[Uber Style Guide](./go-uber-style-guide/SKILL.md)**: Exhaustive expertise in Go programming according to the Uber Go Style Guide.
+- **[Senior Developer](./go-senior-developer/SKILL.md)**: Expert guidance for senior Go developers on architecture, concurrency, and performance.
+- **[OSS Maintainer](./go-oss-maintainer/SKILL.md)**: Expert Go OSS maintainer specializing in repository hygiene, CI/CD, and AI-agent compatibility.
+- **[Options Gen](./go-options-gen/SKILL.md)**: Expert in generating functional options for Go structs using the options-gen library.
+
+### Git
 - **[Gitflow](./gitflow/SKILL.md)**: Expert guidance on the Gitflow branching strategy and release management.
 - **[GitHub Flow](./github-flow/SKILL.md)**: Expert guidance on the lightweight GitHub Flow branching strategy.
 - **[Conventional Commits](./conventional-commits/SKILL.md)**: Expert at writing semantic, machine-readable commit messages.
+
+### AI & Meta
+- **[Skill Writer](./skill-writer/SKILL.md)**: Expert at creating, documenting, and structuring new AI agent skills.
 
 ## How to Use
 
