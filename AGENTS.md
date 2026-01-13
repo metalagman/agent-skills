@@ -25,7 +25,7 @@ When contributing a new skill or modifying an existing one, follow this workflow
 2.  **Standards**: Adhere to the principles in the [Skill Writer](./skill-writer/SKILL.md) skill (Progressive Disclosure, clear triggers).
 3.  **Verification**: Test the skill with an agent to ensure it triggers correctly and provides high-value guidance.
 4.  **Documentation**: **Update the root `README.md`** to include the new skill in the "Available Skills" section, logically grouped by tech stack.
-5.  **Commit**: Use Conventional Commits for all changes.
+5.  **Commit**: Use [Conventional Commits](./conventional-commits/SKILL.md) for all changes.
 
 ## Skill Guides & Specifications
 
