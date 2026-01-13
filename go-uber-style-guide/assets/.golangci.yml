@@ -1,0 +1,32 @@
+linters-settings:
+  govet:
+    check-shadowing: true
+  errcheck:
+    check-type-assertions: true
+  revive:
+    rules:
+      - name: exported
+      - name: package-comments
+      - name: error-naming
+      - name: error-strings
+      - name: error-return
+      - name: var-naming
+  staticcheck:
+    checks: ["all"]
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck
+    - goimports
+    - revive
+    - govet
+    - staticcheck
+    - gocritic
+    - gosimple
+    - ineffassign
+    - typecheck
+    - unused
+
+run:
+  timeout: 5m

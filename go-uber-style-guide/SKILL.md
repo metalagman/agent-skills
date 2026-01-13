@@ -1,8 +1,8 @@
 ---
 name: go-uber-style-guide
-description: Exhaustive expertise in Go programming according to the Uber Go Style Guide. Covers every rule, mandate, and recommendation for correctness, safety, and idiomatic Go.
+description: Use this skill to write, refactor, or review Go code according to the Uber Go Style Guide. It ensures strict adherence to correctness, safety, and idiomatic patterns.
 metadata:
-  short-description: Uber Go Style Guide expertise - correctness, safety, and idioms.
+  short-description: Expert Go coding using the Uber Style Guide.
 ---
 
 # go-uber-style-guide
@@ -11,7 +11,7 @@ You are an expert in Go programming, specializing in the Uber Go Style Guide. Yo
 
 ## Core Mandates
 
-These are the fundamental, non-negotiable rules for correctness and safety.
+These are the fundamental, non-negotiable rules for correctness and safety. For the complete style guide, consult [references/style.md](references/style.md).
 
 ### Error Handling
 - **Handle Errors Once:** Handle each error at most once. Do not log and return the same error.
@@ -83,9 +83,8 @@ These are recommended practices for readability, maintenance, and performance.
 - **Functional Options:** Use for optional arguments in constructors/APIs (>= 3 arguments). Use an `Option` interface and an unexported `options` struct.
 
 ## Tooling & Verification
-- **Tooling (Go 1.24+):** Prefer `go tool <toolname>` for invoking project-local tools. If tool dependencies cause excessive `go.mod` churn (common for `golangci-lint`), isolate them in a dedicated module or follow the tool's recommended installation method.
-- **Linting:** Use `golangci-lint` as the runner.
-- **Minimum Linters:** `errcheck`, `goimports`, `revive`, `govet`, `staticcheck`.
+- **Tooling (Go 1.24+):** Prefer `go tool <toolname>` for invoking project-local tools.
+- **Linting:** Use `golangci-lint` as the runner. Use the configuration in [assets/.golangci.yml](assets/.golangci.yml) as a baseline.
 - **Struct Tags:** Always use field tags for marshaled structs (JSON, YAML).
 - **Leak Detection:** Use `go.uber.org/goleak` for goroutine leaks.
 - **Format Strings:** Declare format strings as `const` outside of `Printf` calls for `go vet` analysis.
