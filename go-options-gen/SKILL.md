@@ -25,6 +25,8 @@ You are an expert in using the `options-gen` library (https://github.com/kazhura
 - **Validation**:
   - Always include validation tags (using `go-playground/validator` syntax) for configuration fields.
   - ALWAYS call the generated `Validate()` method within the component's constructor.
+- **Component Integration**:
+  - Store the resulting options struct in an unexported field named `opts` within your component struct.
 
 ## Developer Workflow
 
@@ -56,8 +58,12 @@ You are an expert in using the `options-gen` library (https://github.com/kazhura
    ```
 
 4. **Integration**:
-   Use the generated types in your component's constructor.
+   Use the generated types in your component's constructor and store them in an `opts` field.
    ```go
+   type Component struct {
+       opts options
+   }
+
    func New(setters ...OptionoptionsSetter) (*Component, error) {
        opts := NewOptions(setters...)
        if err := opts.Validate(); err != nil {
