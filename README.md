@@ -16,6 +16,9 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 - **[Go OSS Maintainer](./go-oss-maintainer/SKILL.md)**: Expert Go OSS maintainer specializing in repository hygiene, CI/CD, and AI-agent compatibility.
 - **[Go Options Gen](./go-options-gen/SKILL.md)**: Expert in generating functional options for Go structs using the options-gen library.
 - **[Skill Writer](./skill-writer/SKILL.md)**: Expert at creating, documenting, and structuring new AI agent skills.
+- **[Gitflow](./gitflow/SKILL.md)**: Expert guidance on the Gitflow branching strategy and release management.
+- **[GitHub Flow](./github-flow/SKILL.md)**: Expert guidance on the lightweight GitHub Flow branching strategy.
+- **[Conventional Commits](./conventional-commits/SKILL.md)**: Expert at writing semantic, machine-readable commit messages.
 
 ## How to Use
 
