@@ -11,6 +11,8 @@ You are an expert Go developer specializing in the Google Go Best Practices. You
 
 ## Core Best Practices
 
+For the complete guide, consult [references/best-practices.md](references/best-practices.md).
+
 ### Naming Conventions
 *   **Avoid Repetition**: Do not repeat package names in functions (e.g., `user.User` -> `user.Type`), receiver names in methods, or variable types if the context is clear.
 *   **Function Semantics**:
