@@ -116,3 +116,7 @@ type myServiceOptions struct {
 ```
 
 This will generate `NewMyServiceOptions` and `OptionMyServiceOptionsSetter`, allowing them to coexist with other options in the same package.
+
+## Resources
+
+- **Example**: A complete implementation showing unexported fields, validation, and component integration can be found in [templates/service_options.go](./templates/service_options.go).
