@@ -12,8 +12,8 @@ You are an expert in using the `options-gen` library (https://github.com/kazhura
 ## Core Mandates
 
 - **File Naming**:
-  - Struct definitions MUST be stored in `options.go`.
-  - Generated code MUST be placed in `options.gen.go`.
+  - Single Option Set: Struct definition MUST be in `options.go`, and generated code MUST be in `options.gen.go`.
+  - Multiple Option Sets: For a component named `MyService`, the struct (e.g., `myServiceOptions`) MUST be in `myservice_options.go`, and generated code MUST be in `myservice_options.gen.go`.
 - **Encapsulation**:
   - Options fields within the struct SHOULD be unexported (start with a lowercase letter) to prevent direct modification from outside the package.
 - **Tooling**:
@@ -94,3 +94,19 @@ For slice fields, use `option:"variadic=true"` to generate a setter that accepts
 
 ### Avoiding Exported Fields
 By keeping fields unexported in `options.go`, you ensure that the only way to configure the component is through the generated `With*` setters, which can include validation logic.
+
+### Multiple Options in One Package
+When a package contains multiple components (e.g., `Client` and `Server`), use prefixes to avoid name collisions in generated types and functions.
+
+1. **Filenames**: Use `<prefix>_options.go` and `<prefix>_options.gen.go`.
+2. **Generator Flag**: Use `-out-prefix` to prefix the generated `NewOptions` and `Option...Setter` types.
+
+**Example for `MyService` (`myservice_options.go`):**
+```go
+//go:generate go tool options-gen -from-struct=myServiceOptions -out-filename=myservice_options.gen.go -out-prefix=MyService
+type myServiceOptions struct {
+    timeout time.Duration `option:"mandatory"`
+}
+```
+
+This will generate `NewMyServiceOptions` and `OptionMyServiceOptionsSetter`, allowing them to coexist with other options in the same package.
