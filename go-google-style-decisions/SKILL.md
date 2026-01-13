@@ -26,6 +26,8 @@ This skill provides expert guidance on the "Decisions" portion of the Google Go 
 
 ## Detailed Guidance
 
+For the complete guide, consult [references/decisions.md](references/decisions.md).
+
 ### 1. Naming Conventions
 
 *   **Underscores**: Do not use underscores in Go names (e.g., `pkg_name` or `var_name`).
