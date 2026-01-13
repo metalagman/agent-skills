@@ -12,8 +12,8 @@ You are an expert in using the `options-gen` library (https://github.com/kazhura
 ## Core Mandates
 
 - **File Naming**:
-  - Single Option Set: Struct definition MUST be in `options.go`, and generated code MUST be in `options.gen.go`.
-  - Multiple Option Sets: For a component named `MyService`, the struct (e.g., `myServiceOptions`) MUST be in `myservice_options.go`, and generated code MUST be in `myservice_options.gen.go`.
+  - Single Option Set: Struct definition MUST be in `options.go`, and generated code MUST be in `options_generated.go`.
+  - Multiple Option Sets: For a component named `MyService`, the struct (e.g., `MyServiceOptions`) MUST be in `myservice_options.go`, and generated code MUST be in `myservice_options_generated.go`.
 - **Encapsulation**:
   - Options fields within the struct SHOULD be unexported (start with a lowercase letter) to prevent direct modification from outside the package.
 - **Tooling**:
@@ -43,8 +43,8 @@ You are an expert in using the `options-gen` library (https://github.com/kazhura
 
    import "time"
 
-   //go:generate go tool options-gen -from-struct=options -out-filename=options.gen.go
-   type options struct {
+   //go:generate go tool options-gen -from-struct=Options -out-filename=options_generated.go
+   type Options struct {
        timeout    time.Duration `option:"mandatory" validate:"required"`
        maxRetries int           `default:"3" validate:"min=1"`
        endpoints  []string      `option:"variadic=true"`
@@ -61,10 +61,10 @@ You are an expert in using the `options-gen` library (https://github.com/kazhura
    Use the generated types in your component's constructor and store them in an `opts` field.
    ```go
    type Component struct {
-       opts options
+       opts Options
    }
 
-   func New(setters ...OptionoptionsSetter) (*Component, error) {
+   func New(setters ...OptionOptionsSetter) (*Component, error) {
        opts := NewOptions(setters...)
        if err := opts.Validate(); err != nil {
            return nil, fmt.Errorf("invalid options: %w", err)
@@ -82,9 +82,9 @@ You are an expert in using the `options-gen` library (https://github.com/kazhura
 ### Advanced Defaults
 For complex types (like maps or nested structs), use `-defaults-from=func` in the generate directive and define a provider function:
 ```go
-//go:generate go tool options-gen -from-struct=options -out-filename=options.gen.go -defaults-from=func
-func defaultOptions() options {
-    return options{
+//go:generate go tool options-gen -from-struct=Options -out-filename=options_generated.go -defaults-from=func
+func defaultOptions() Options {
+    return Options{
         headers: map[string]string{"User-Agent": "my-client"},
     }
 }
@@ -104,13 +104,13 @@ By keeping fields unexported in `options.go`, you ensure that the only way to co
 ### Multiple Options in One Package
 When a package contains multiple components (e.g., `Client` and `Server`), use prefixes to avoid name collisions in generated types and functions.
 
-1. **Filenames**: Use `<prefix>_options.go` and `<prefix>_options.gen.go`.
+1. **Filenames**: Use `<prefix>_options.go` and `<prefix>_options_generated.go`.
 2. **Generator Flag**: Use `-out-prefix` to prefix the generated `NewOptions` and `Option...Setter` types.
 
 **Example for `MyService` (`myservice_options.go`):**
 ```go
-//go:generate go tool options-gen -from-struct=myServiceOptions -out-filename=myservice_options.gen.go -out-prefix=MyService
-type myServiceOptions struct {
+//go:generate go tool options-gen -from-struct=MyServiceOptions -out-filename=myservice_options_generated.go -out-prefix=MyService
+type MyServiceOptions struct {
     timeout time.Duration `option:"mandatory"`
 }
 ```
@@ -119,4 +119,4 @@ This will generate `NewMyServiceOptions` and `OptionMyServiceOptionsSetter`, all
 
 ## Resources
 
-- **Example**: A complete implementation showing unexported fields, validation, and component integration can be found in [assets/service_options.go](./assets/service_options.go).
+- **Examples**: Complete implementations showing unexported fields, validation, and component integration can be found in the [assets](./assets/README.md) directory.
