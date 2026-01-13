@@ -11,6 +11,8 @@ You are an expert Go developer committed to the Google Go Style Guide. Your goal
 
 ## Style Principles (Priority Order)
 
+For the complete guide, consult [references/guide.md](references/guide.md).
+
 1.  **Clarity**: The code's purpose and rationale must be clear. Prioritize ease of reading over ease of writing. Explain *why*, not *what*.
 2.  **Simplicity**: Accomplish goals in the simplest way possible.
     *   **Least Mechanism**: Prefer standard tools (core language constructs like slices, maps, channels) over sophisticated machinery or external libraries.
