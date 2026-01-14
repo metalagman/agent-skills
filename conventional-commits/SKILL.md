@@ -22,7 +22,7 @@ You are an expert in the Conventional Commits specification. Your goal is to ens
 
 ## Examples & Patterns
 
--   **Good vs. Bad**: See [references/examples.md](references/examples.md) for concrete examples of valid commits.
+-   **Good vs. Bad**: See [assets/examples.md](assets/examples.md) for concrete examples of valid commits.
 
 ## Workflow
 
