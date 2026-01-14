@@ -1,6 +1,6 @@
 ---
 name: go-oss-maintainer
-description: Expert Go OSS maintainer specializing in repository hygiene, CI/CD, and AI-agent compatibility.
+description: Maintain Go repositories with high-quality standards, adhering to CI/CD, linting, and agent-friendly best practices.
 metadata:
   short-description: Senior-level guidance for maintaining Go OSS projects with modern best practices.
 ---
@@ -25,23 +25,23 @@ You are a senior Go Open Source maintainer. Your goal is to ensure Go repositori
 ## Developer Workflow
 
 1.  **Repo Initialization**:
-    - Add/update `.gitignore` (template in `assets/.gitignore`).
-    - Ensure a `LICENSE` file is present (template in `assets/LICENSE`).
-    - Create/update `README.md` (template in `assets/README.md`).
-    - Create `.aiignore` (template in `assets/.aiignore`).
-    - Create `.dockerignore` (template in `assets/.dockerignore`).
-    - Create `AGENTS.md` (template in `assets/AGENTS.md`).
+    - Add/update `.gitignore` (template in [assets/.gitignore](assets/.gitignore)).
+    - Ensure a `LICENSE` file is present (template in [assets/LICENSE](assets/LICENSE)).
+    - Create/update `README.md` (template in [assets/README.md](assets/README.md)).
+    - Create `.aiignore` (template in [assets/.aiignore](assets/.aiignore)).
+    - Create `.dockerignore` (template in [assets/.dockerignore](assets/.dockerignore)).
+    - Create `AGENTS.md` (template in [assets/AGENTS.md](assets/AGENTS.md)).
 2.  **Module Maintenance**:
     - Detect the local Go version using `go version`.
     - Ensure `go.mod` lists this detected Go version.
     - Run `go mod tidy` to prune unused dependencies.
 3.  **Linting Setup**:
-    - Place the project's `.golangci.yml` in the root (reference in `assets/.golangci.yml`).
+    - Place the project's `.golangci.yml` in the root (reference in [assets/.golangci.yml](assets/.golangci.yml)).
     - Use `go tool golangci-lint run ./...` for local checks.
 4.  **CI/CD Configuration**:
     - Fetch the latest `golangci-lint` version from `https://api.github.com/repos/golangci/golangci-lint/releases/latest`.
-    - Set up `.github/workflows/lint.yml` (template in `assets/lint.yml`), using `go-version-file: 'go.mod'` and the fetched `golangci-lint` version.
-    - Set up `.github/workflows/test.yml` (template in `assets/test.yml`), using `go-version-file: 'go.mod'`.
+    - Set up `.github/workflows/lint.yml` (template in [assets/lint.yml](assets/lint.yml)), using `go-version-file: 'go.mod'` and the fetched `golangci-lint` version.
+    - Set up `.github/workflows/test.yml` (template in [assets/test.yml](assets/test.yml)), using `go-version-file: 'go.mod'`.
 5.  **Verification**:
     - Execute all local tests and linters before proposing changes.
 
@@ -59,12 +59,13 @@ Automate everything. Use the provided GitHub Action templates to ensure every PR
 ## Resources
 
 Templates and configurations are available in the `assets/` directory:
-- `.gitignore`: Generic Go/IDE ignore patterns.
-- `.aiignore`: Patterns to guide AI agents.
-- `.dockerignore`: Lean Docker build context.
-- `.golangci.yml`: Production-ready linter configuration.
-- `AGENTS.md`: AI agent interaction guidelines.
-- `LICENSE`: Default MIT License template.
-- `README.md`: Project documentation template.
-- `lint.yml`: GitHub Action for `golangci-lint`.
-- `test.yml`: GitHub Action for Go tests.
+
+-   [assets/.gitignore](assets/.gitignore): Generic Go/IDE ignore patterns.
+-   [assets/.aiignore](assets/.aiignore): Patterns to guide AI agents.
+-   [assets/.dockerignore](assets/.dockerignore): Lean Docker build context.
+-   [assets/.golangci.yml](assets/.golangci.yml): Production-ready linter configuration.
+-   [assets/AGENTS.md](assets/AGENTS.md): AI agent interaction guidelines.
+-   [assets/LICENSE](assets/LICENSE): Default MIT License template.
+-   [assets/README.md](assets/README.md): Project documentation template.
+-   [assets/lint.yml](assets/lint.yml): GitHub Action for `golangci-lint`.
+-   [assets/test.yml](assets/test.yml): GitHub Action for Go tests.
