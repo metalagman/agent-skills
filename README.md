@@ -29,6 +29,14 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 
 AI agents that support skills (like Gemini CLI, Claude Code, or OpenAI Codex) can discover and activate these skills.
 
+### Using the CLI Tool (Recommended)
+
+The easiest way to install all skills from this repository is using the `add-skill` tool:
+
+```bash
+npx add-skill metalagman/agent-skills
+```
+
 ### Quick Start (Clone & Symlink)
 
 The most efficient way to use these skills and stay updated is to clone the repository and symlink the desired skills to your agent's global skill directory.
