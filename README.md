@@ -22,6 +22,9 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 - **[GitHub Flow](./github-flow/SKILL.md)**: Expert guidance on the lightweight GitHub Flow branching strategy.
 - **[Conventional Commits](./conventional-commits/SKILL.md)**: Expert at writing semantic, machine-readable commit messages.
 
+### Workflow & Issue Tracking
+- **[Beads](./beads/SKILL.md)**: Expert in Beads (bd), a Git-backed, AI-native issue tracker and workflow engine.
+
 ### AI & Meta
 - **[Skill Writer](./skill-writer/SKILL.md)**: Expert at creating, documenting, and structuring new AI agent skills.
 
