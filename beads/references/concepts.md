@@ -1,29 +1,28 @@
 # Beads Core Concepts
 
-Beads (`bd`) is an AI-native, Git-backed issue tracker designed for collaborative coding workflows.
+Beads (`bd`) is a Git-backed, AI-native issue tracker designed for dependency-aware workflows.
 
-## AI-Native Architecture
-- **Hash-based IDs**: Uses 128-bit hashes (truncated for display) to prevent ID collisions when multiple agents or humans work concurrently on different branches.
-- **Machine-Friendly**: Commands support `--json` output for programmatic access by AI agents.
-- **Deterministic**: Workflow execution is designed to be predictable and repeatable.
+## Issue IDs
+- Uses hash-based IDs (e.g., `bd-a3f8e9`) to avoid collisions across branches.
+- Supports hierarchical IDs for epics (e.g., `bd-a3f8e9.1`, `bd-a3f8e9.2`).
 
-## Git-Backed Storage
-- **JSONL Format**: Issues and metadata are stored in `.beads/state.jsonl`. This line-delimited JSON format is version-control friendly, minimizing merge conflicts.
-- **Collaborative**: Issues live with the code. Syncing issues is as simple as `git pull` and `git push`.
-- **Branch-Aware**: Issues created on a branch stay on that branch until merged, allowing for branch-specific issue tracking.
+## Storage + Architecture
+- **SQLite backend**: `.beads/*.db` is the primary store; `bd sync` exports to `.beads/issues.jsonl` for git sync.
+- **JSONL export**: `.beads/issues.jsonl` is line-delimited JSON for git synchronization.
+- **Config metadata**: `.beads/config.json` and `.beads/metadata.json`.
+- The daemon can auto-import/export JSONL and optionally auto-commit/push when enabled.
 
-## Dual-Storage System
-- **Source of Truth**: The Git-tracked `.beads/*.jsonl` files.
-- **Query Layer**: A local SQLite database (`.beads/beads.db`) provides fast indexing and complex queries.
-- **Rebuildable**: The SQLite database is derived state and can be rebuilt from the JSONL files at any time using `bd init`.
+## Backends
+- **SQLite (default)**: local DB with JSONL export for git sync.
+- **Dolt**: `bd init --backend dolt` stores data in `.beads/dolt/` with versioned history.
 
-## Issue Relationships
-- **Blocks**: A hard dependency. If A blocks B, B is not "ready" until A is closed.
-- **Parent-Child**: Hierarchical organization (e.g., Epic -> Task -> Subtask).
-- **Discovered From**: Tracks issues found while working on another issue.
-- **Related**: Soft link for informational purposes.
+## Relationships
+- **Blocks**: hard dependency; blocked issues are not "ready".
+- **Parent/Child**: epic → task structure.
+- **Discovered-from**: issues found while working on another issue.
+- **Related**: soft linkage for context.
 
-## Lifecycle Entities
-- **Daemon**: A background process that ensures the SQLite database stays in sync with the JSONL files.
-- **Gates**: Asynchronous coordination points (Human approval, CI pass, Timer).
-- **Wisps**: Ephemeral, local-only workflows that don't get synced to Git.
+## Workflow Primitives
+- **Formulas**: declarative workflow templates (TOML or JSON).
+- **Molecules**: instantiated workflow graphs created from formulas.
+- **Gates**: async coordination (human approval, timers, CI/GitHub signals).
