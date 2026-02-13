@@ -7,7 +7,8 @@ Use this when a user asks for a "start from scratch" Go ADK setup.
    - `go mod init <module>`
    - `go get google.golang.org/adk@latest`
 2. Configure model credentials (for Gemini, set `GOOGLE_API_KEY`).
-3. Start with a single `llmagent` and one tool.
+3. Confirm runtime prerequisites from ADK installation docs when local launcher commands fail.
+4. Start with a single `llmagent` and one tool.
 
 ## Minimal launcher pattern (official)
 Use `cmd/launcher` to run with ADK runtime modes:
@@ -57,3 +58,9 @@ Use `runner.Run(...)` directly when the user needs:
 - Custom event loop integration.
 - Explicit handling of user/session IDs.
 - Fine-grained control over stream/event processing.
+
+## Quickstart extensions from ADK docs map
+Use these when the request is no longer "minimal setup":
+- Advanced environment/runtime setup: ADK advanced setup docs.
+- Streaming-first app behavior: ADK streaming quickstart and bidi streaming docs.
+- Multi-tool starter pattern: ADK multi-tool quickstart.

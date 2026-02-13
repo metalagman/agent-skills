@@ -6,11 +6,23 @@ Use this file when users ask about custom tools, policy controls, or execution h
 1. Start with the smallest tool surface possible.
 2. Add strong argument typing and validation.
 3. Return structured data when downstream agents consume tool output.
+4. Check tool limitations and performance guidance before adding many tools to one agent.
 
 ## Custom tools in Go
 - Primary package: `google.golang.org/adk/tool/functiontool`.
 - Use function tools for deterministic side effects or data fetches.
 - Keep tool handlers idempotent where possible.
+
+## Tool implementation choices
+- Function tools: best default for strongly typed custom logic.
+- MCP tools: use when capability should come from external MCP servers.
+- OpenAPI tools: use when integrating stable external APIs with schema-driven tool generation.
+- Built-in integrations: use only when they match an explicit product requirement.
+
+## Authentication and sensitive actions
+- Decide authentication strategy up front for external tools.
+- Use action confirmations for write/delete/transactional operations.
+- Keep read-only tools confirmation-free unless the user requires explicit approvals.
 
 ## Action confirmations
 - ADK supports requiring confirmation before sensitive tool actions.
@@ -39,6 +51,11 @@ Use callbacks to avoid prompt bloat and centralize control.
 ## Plugins vs callbacks
 - Use callbacks for local, agent-specific control.
 - Use plugins for reusable policy stacks across agents/apps.
+
+## Integrations and observability
+- ADK exposes a large integrations catalog (MCP tools, cloud data tools, observability integrations, and others).
+- Start from the integrations index and choose the narrowest integration that satisfies the requirement.
+- For observability, define logs/trace expectations before wiring third-party integrations.
 
 ## Guardrail checklist
 - Validate all tool args.
