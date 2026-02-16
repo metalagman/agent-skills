@@ -20,7 +20,6 @@ These are the fundamental rules for using Fx correctly and safely. For more deta
 - **Module conventions, `fx.Private`, and `fx.Invoke` usage:** [references/modules.md](references/modules.md)
 - **Parameter/result objects (`fx.In` / `fx.Out`) and naming:** [references/dependency-objects.md](references/dependency-objects.md)
 - **Annotations and value groups:** [references/annotations-and-groups.md](references/annotations-and-groups.md)
-- **Compatibility index for older links:** [references/patterns.md](references/patterns.md)
 
 ### Dependency Injection & Container
 - **No Globals:** Eliminate global state. Let Fx manage singletons and provide them where needed.
