@@ -21,7 +21,7 @@ Hooks are scheduled via the `fx.Lifecycle` object, which is automatically availa
 
 ### `OnStart`
 - **Purpose:** Start background tasks, open connections, start servers.
-- **Constraints:** Must not block. Use goroutines for long-running processes.
+- **Constraints:** Block only as long as needed to schedule startup work. Use goroutines for long-running processes.
 - **Timeout:** Fx enforces a startup timeout (default 15s).
 
 ### `OnStop`
@@ -48,7 +48,7 @@ func NewServer(lc fx.Lifecycle, logger *zap.Logger) *http.Server {
     
     return srv
 }
+```
 
 ---
 *Derived from the [official Fx lifecycle documentation](https://github.com/uber-go/fx/blob/master/docs/src/lifecycle.md).*
-```

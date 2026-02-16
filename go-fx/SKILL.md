@@ -13,7 +13,14 @@ This skill is based on the official [Uber Fx Documentation](https://github.com/u
 
 ## Core Mandates
 
-These are the fundamental rules for using Fx correctly and safely. For more detail, see the [references](references/).
+These are the fundamental rules for using Fx correctly and safely. For more detail, use the reference map below.
+
+## Reference Map
+- **Lifecycle phases, hooks, timeouts, and ordering:** [references/lifecycle.md](references/lifecycle.md)
+- **Module conventions, `fx.Private`, and `fx.Invoke` usage:** [references/modules.md](references/modules.md)
+- **Parameter/result objects (`fx.In` / `fx.Out`) and naming:** [references/dependency-objects.md](references/dependency-objects.md)
+- **Annotations and value groups:** [references/annotations-and-groups.md](references/annotations-and-groups.md)
+- **Compatibility index for older links:** [references/patterns.md](references/patterns.md)
 
 ### Dependency Injection & Container
 - **No Globals:** Eliminate global state. Let Fx manage singletons and provide them where needed.
@@ -23,7 +30,7 @@ These are the fundamental rules for using Fx correctly and safely. For more deta
 
 ### Application Lifecycle
 - **Hooks for Side Effects:** Use `fx.Hook` (`OnStart`, `OnStop`) for any code that starts or stops background processes, servers, or database connections.
-- **Non-Blocking Hooks:** `OnStart` and `OnStop` hooks must not block. Schedule long-running tasks in background goroutines.
+- **Hook Duration Discipline:** Hooks should block only as long as needed to schedule work. Do not run long-running tasks synchronously inside hooks; schedule them in background goroutines.
 - **Order Matters:** `OnStart` hooks run in the order they are appended; `OnStop` hooks run in **reverse** order.
 
 ### Parameter & Result Objects
@@ -42,7 +49,7 @@ These are the fundamental rules for using Fx correctly and safely. For more deta
 - **Export Boundary Functions:** Ensure constructors used in `fx.Provide` are exported if they are useful outside of Fx. It should be possible to use your package without Fx.
 - **Naming Conventions:**
     - Standalone modules should have an `fx` suffix (e.g., `package zapfx`).
-    - Parameter/Result objects should be named after the function (e.g., `NewParams`, `NewResult`).
+    - Parameter/Result objects should be named after the function (e.g., `RunParams`, `RunResult`; for `New*` constructors, strip `New`: `Params`/`Result` for `New`, `FooParams`/`FooResult` for `NewFoo`).
 - **Private Providers:** Use `fx.Private` to restrict a constructor's output to the module it's defined in.
 
 ### Common Patterns
