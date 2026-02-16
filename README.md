@@ -10,6 +10,7 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 
 ### Go
 - **[ADK (Agent Development Kit)](./go-adk/SKILL.md)**: Expert guidance for building and running agents in Go with Google's ADK (`google.golang.org/adk`).
+- **[Fx](./go-fx/SKILL.md)**: Expert Go development with the Uber Fx dependency injection framework for lifecycle management and boilerplate reduction.
 - **[Google Style Guide](./go-google-style-guide/SKILL.md)**: Expertise in Go programming according to the Google Go Style Guide.
 - **[Google Style Decisions](./go-google-style-decisions/SKILL.md)**: Specific choices and trade-offs for consistent Go codebases.
 - **[Google Best Practices](./go-google-best-practices/SKILL.md)**: Advanced idiomatic Go patterns and best practices from Google.
