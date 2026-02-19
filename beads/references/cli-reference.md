@@ -1,5 +1,10 @@
 # Beads CLI Reference Summary
 
+## Agent defaults (recommended)
+- Use `bd --no-daemon --json <command>` for routine agent operations (create/list/show/update/close).
+- Reserve daemon mode for explicit background sync needs (`bd daemon ...`, auto-commit/push workflows).
+- If you see daemon startup timeout warnings during normal CRUD commands, rerun with `--no-daemon`.
+
 ## Initialization & Status
 - `bd init`: Initialize Beads (wizard-driven).
   - `--backend sqlite|dolt`: select storage backend (default: sqlite).

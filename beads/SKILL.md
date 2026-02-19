@@ -15,10 +15,11 @@ Expert guidance for using Beads (`bd`) to track tasks, dependencies, and workflo
 
 ## Core rules
 - Prefer CLI + hooks (`bd setup <recipe>`) when shell access exists; use MCP only when CLI is unavailable.
+- For agent one-shot commands, default to direct mode: `bd --no-daemon ...`.
 - Always use `--json` for machine parsing (`bd list`, `bd show`, `bd create`, etc.).
 - Use `bd ready` (or `bd list --ready`) to select unblocked work; add dependencies with `bd dep add` before starting.
 - Run `bd sync` to export DB state to JSONL; it does **not** commit/push by default.
-- Use `bd daemon` (with `--auto-commit/--auto-push`) or `bd sync --full` if you need automated git operations.
+- Use `bd daemon` (with `--auto-commit/--auto-push`) or `bd sync --full` only when background automation is explicitly needed.
 - Default backend is SQLite; use `bd init --backend dolt` for Dolt-backed storage.
 
 ## Workflow
@@ -30,7 +31,7 @@ Expert guidance for using Beads (`bd`) to track tasks, dependencies, and workflo
 6. **Recovery**: use `bd status`, `bd daemon status`, and `bd doctor` when sync or database issues appear. See [references/recovery.md](references/recovery.md).
 
 ## Output expectations
-- Provide exact commands with flags and IDs; prefer `--json`.
+- Provide exact commands with flags and IDs; prefer `--json` and include `--no-daemon` unless daemon mode is the goal.
 - Ask for backend, repo location, and desired workflow if ambiguous.
 - Call out whether a command affects git-tracked JSONL vs local DB.
 

@@ -37,32 +37,31 @@ AI agents that support skills (like Gemini CLI, Claude Code, or OpenAI Codex) ca
 
 ### Using the CLI Tool (Recommended)
 
-The easiest way to install all skills from this repository is using the `add-skill` tool:
+The easiest way to install skills from this repository is:
 
 ```bash
-npx add-skill metalagman/agent-skills
+npx skills add metalagman/agent-skills
 ```
 
 ### Quick Start (Clone & Symlink)
 
-The most efficient way to use these skills and stay updated is to clone the repository and symlink the desired skills to your agent's global skill directory.
+The most efficient way to use these skills and stay updated is to clone the repository and symlink desired skills into `~/.agents/skills`.
 
 ```bash
 # Clone the repository
 git clone git@github.com:metalagman/agent-skills.git ~/Projects/agent-skills
 
-# Create the skills directory if it doesn't exist (e.g., for Gemini)
-mkdir -p ~/.gemini/skills
+# Create the skills directory if it doesn't exist
+mkdir -p ~/.agents/skills
 
 # Symlink a specific skill
-ln -s ~/Projects/agent-skills/go-uber-style-guide ~/.gemini/skills/go-uber-style-guide
+ln -s ~/Projects/agent-skills/go-uber-style-guide ~/.agents/skills/go-uber-style-guide
 ```
-
-*Replace `~/.gemini/skills/` with `~/.claude/skills/` for Claude Code or `~/.codex/skills/` for OpenAI Codex.*
 
 ### Manual Placement
 
-1.  **Placement**: Clone this repository or copy specific skill folders into your agent's skill directory (e.g., `.gemini/skills/`, `.claude/skills/`, or `.codex/skills/`).
-2.  **Activation**: Once placed in the appropriate directory, the agent will automatically discover the skill based on its description in `SKILL.md` and request activation when relevant.
+1.  **Placement**: Clone this repository locally.
+2.  **Symlink**: Symlink specific skill folders into `~/.agents/skills/`.
+3.  **Activation**: The agent will automatically discover skills from `SKILL.md` metadata when relevant.
 
 For more technical details on how skills are structured and processed, see [AGENTS.md](./AGENTS.md).
