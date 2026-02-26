@@ -19,6 +19,7 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 - **[OSS Maintainer](./go-oss-maintainer/SKILL.md)**: Expert Go OSS maintainer specializing in repository hygiene, CI/CD, and AI-agent compatibility.
 - **[Options Gen](./go-options-gen/SKILL.md)**: Expert in generating functional options for Go structs using the options-gen library.
 - **[Goose](./go-goose/SKILL.md)**: Expert guidance for goose CLI and Go library database migrations.
+- **[golangci-lint Strict](./golangci-lint-strict/SKILL.md)**: Install and pin powerman/golangci-lint-strict configs unchanged for exact golangci-lint versions.
 
 ### Git
 - **[Gitflow](./gitflow/SKILL.md)**: Expert guidance on the Gitflow branching strategy and release management.
