@@ -11,27 +11,29 @@ Expert guidance for using Beads (`bd`) to track tasks, dependencies, and workflo
 
 ## When to trigger
 - The user mentions Beads, `bd`, or wants dependency-aware task tracking for agents.
-- The task involves `bd init`, `bd ready`, `bd sync`, formulas/molecules, or agent hooks.
+- The task involves Beads CLI operations (init, ready, sync), formulas/molecules, or agent hooks.
 
 ## Core rules
-- Prefer CLI + hooks (`bd setup <recipe>`) when shell access exists; use MCP only when CLI is unavailable.
-- For agent one-shot commands, default to direct mode: `bd --no-daemon ...`.
-- Always use `--json` for machine parsing (`bd list`, `bd show`, `bd create`, etc.).
-- Use `bd ready` (or `bd list --ready`) to select unblocked work; add dependencies with `bd dep add` before starting.
-- Run `bd sync` to export DB state to JSONL; it does **not** commit/push by default.
-- Use `bd daemon` (with `--auto-commit/--auto-push`) or `bd sync --full` only when background automation is explicitly needed.
-- Default backend is SQLite; use `bd init --backend dolt` for Dolt-backed storage.
+- Prefer CLI + hooks (`bd --no-daemon setup <recipe>`) when shell access exists; use MCP only when CLI is unavailable.
+- For all non-daemon agent commands, use direct mode: `bd --no-daemon <command> ...`.
+- Never emit bare `bd <command>` for non-daemon operations.
+- Use `--json` for machine parsing where supported: `bd --no-daemon --json <command> ...`.
+- Use `bd --no-daemon ready` (or `bd --no-daemon list --ready`) to select unblocked work; add dependencies with `bd --no-daemon dep add` before starting.
+- Run `bd --no-daemon sync` to export DB state to JSONL; it does **not** commit/push by default.
+- Use `bd daemon ...` (with `--auto-commit/--auto-push`) or `bd --no-daemon sync --full` only when background automation is explicitly needed.
+- Default backend is SQLite; use `bd --no-daemon init --backend dolt` for Dolt-backed storage.
 
 ## Workflow
-1. **Initialize**: verify with `bd status`; if needed, run `bd init` (choose backend and branch). See [references/cli-reference.md](references/cli-reference.md).
-2. **Integrate**: install hooks with `bd setup <recipe>` or configure manually. See [references/integrations.md](references/integrations.md).
-3. **Manage issues**: create, update status, close with reason; maintain dependencies; use `bd list`, `bd ready`, `bd blocked`, `bd stats`.
-4. **Sync + context**: `bd prime` on session start; `bd sync` after issue changes and `bd sync --import` after pull; use `bd sync --status` to verify state.
-5. **Advanced workflows**: formulas, molecules, gates (`bd formula`, `bd mol`, `bd gate`). See [references/workflows.md](references/workflows.md).
-6. **Recovery**: use `bd status`, `bd daemon status`, and `bd doctor` when sync or database issues appear. See [references/recovery.md](references/recovery.md).
+1. **Initialize**: verify with `bd --no-daemon status`; if needed, run `bd --no-daemon init` (choose backend and branch). See [references/cli-reference.md](references/cli-reference.md).
+2. **Integrate**: install hooks with `bd --no-daemon setup <recipe>` or configure manually. See [references/integrations.md](references/integrations.md).
+3. **Manage issues**: create, update status, close with reason; maintain dependencies; use `bd --no-daemon list`, `bd --no-daemon ready`, `bd --no-daemon blocked`, `bd --no-daemon stats`.
+4. **Sync + context**: `bd --no-daemon prime` on session start; `bd --no-daemon sync` after issue changes and `bd --no-daemon sync --import` after pull; use `bd --no-daemon sync --status` to verify state.
+5. **Advanced workflows**: formulas, molecules, gates (`bd --no-daemon formula`, `bd --no-daemon mol`, `bd --no-daemon gate`). See [references/workflows.md](references/workflows.md).
+6. **Recovery**: use `bd --no-daemon status`, `bd daemon status`, and `bd --no-daemon doctor` when sync or database issues appear. See [references/recovery.md](references/recovery.md).
 
 ## Output expectations
-- Provide exact commands with flags and IDs; prefer `--json` and include `--no-daemon` unless daemon mode is the goal.
+- Provide exact commands with flags and IDs; default to `bd --no-daemon ...` and use `--json` where supported.
+- If daemon timeout warnings appear, rerun the same command in direct mode with `--no-daemon`.
 - Ask for backend, repo location, and desired workflow if ambiguous.
 - Call out whether a command affects git-tracked JSONL vs local DB.
 
