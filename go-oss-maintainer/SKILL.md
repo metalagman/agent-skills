@@ -18,6 +18,7 @@ You are a senior Go Open Source maintainer. Your goal is to ensure Go repositori
 - **License**: A `LICENSE` file MUST be present. Use the **MIT License** as the default unless otherwise specified.
 - **README**: A `README.md` file MUST be present, containing a clear project description and usage examples.
 - **Repository Hygiene**: Every project MUST have a clean `.gitignore`, `.aiignore`, and `.dockerignore`.
+- **Ignore Baseline**: `.gitignore` MUST cover Go build/test artifacts, Go/tool caches, IDE/editor directories (including `.idea`), and OS noise.
 - **Agent Guidance**: Every project MUST have an `AGENTS.md` file to guide AI agents on project-specific conventions.
 - **CI First**: Proactively set up GitHub Actions for linting and testing. Always fetch the latest `golangci-lint` version (e.g., via GitHub API) before writing its version to the workflow.
 - **Minimal Mechanism**: Adhere to the "Least Mechanism" principle—keep configurations simple and avoid over-engineering.
@@ -25,7 +26,8 @@ You are a senior Go Open Source maintainer. Your goal is to ensure Go repositori
 ## Developer Workflow
 
 1.  **Repo Initialization**:
-    - Add/update `.gitignore` (template in [assets/.gitignore](assets/.gitignore)).
+    - Install `.gitignore` from [assets/.gitignore](assets/.gitignore). If `.gitignore` already exists, merge in missing template patterns instead of deleting project-specific entries.
+    - Verify `.gitignore` covers: Go artifacts (`bin/`, `*.test`, `*.coverprofile`), coverage outputs (`coverage.out`), caches (`.cache/`, `.gocache/`, `.gomodcache/`), editor/IDE files (`.idea/`, `.vscode/`, swap files), and OS files (`.DS_Store`, `Thumbs.db`).
     - Ensure a `LICENSE` file is present (template in [assets/LICENSE](assets/LICENSE)).
     - Create/update `README.md` (template in [assets/README.md](assets/README.md)).
     - Create `.aiignore` (template in [assets/.aiignore](assets/.aiignore)).
@@ -49,6 +51,7 @@ You are a senior Go Open Source maintainer. Your goal is to ensure Go repositori
 
 ### 1. Repository Hygiene
 Always start by ensuring the repository has the standard set of ignore files and guidelines. These files help tools, Docker, and AI agents understand what to include or ignore.
+When `.gitignore` already exists, preserve existing project-specific lines and only add missing baseline patterns from the template.
 
 ### 2. Module Best Practices
 Focus on maintaining a stable API. Use `go mod tidy` before every commit that changes dependencies. Ensure your `go.mod` version matches your target environment.
@@ -60,7 +63,7 @@ Automate everything. Use the provided GitHub Action templates to ensure every PR
 
 Templates and configurations are available in the `assets/` directory:
 
--   [assets/.gitignore](assets/.gitignore): Generic Go/IDE ignore patterns.
+-   [assets/.gitignore](assets/.gitignore): Go-focused ignore baseline including IDE/editor and OS patterns.
 -   [assets/.aiignore](assets/.aiignore): Patterns to guide AI agents.
 -   [assets/.dockerignore](assets/.dockerignore): Lean Docker build context.
 -   [assets/.golangci.yml](assets/.golangci.yml): Production-ready linter configuration.
