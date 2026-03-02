@@ -29,6 +29,9 @@ This repository contains "Skills" — self-contained modules that teach AI agent
 ### Workflow & Issue Tracking
 - **[Beads](./beads/SKILL.md)**: Expert in Beads (bd), a Git-backed, AI-native issue tracker and workflow engine.
 
+### Release & Distribution
+- **[Omnidist](./omnidist/SKILL.md)**: Expert workflow for initializing and operating omnidist release pipelines across npm and uv.
+
 ### AI & Meta
 - **[Skill Writer](./skill-writer/SKILL.md)**: Expert at creating, documenting, and structuring new AI agent skills.
 
